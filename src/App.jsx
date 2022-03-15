@@ -5,6 +5,7 @@ import Contact from "./components/pages/Contact";
 import GetIdFromParams from "./components/GetIdFromParams";
 import Header from "./components/layout/Header";
 import Home from "./components/pages/Home";
+import Layout from "./components/layout/Layout";
 import NotFound from "./components/pages/NotFound";
 import Service from "./components/pages/Service";
 import Services from "./components/pages/Services";
@@ -20,8 +21,7 @@ function App() {
             <h3>Dental Health Day at the Dental Spa</h3>
             <Router>
                 {/* all routes go in a <Routes> component  */}
-                <Header />
-                <main>
+                <Layout>
                     <Routes>
                         {/* route needs a path and elem. path = url, element=component */}
                         <Route exact path="/" element={<Home />} />
@@ -35,7 +35,7 @@ function App() {
                           rule 2: you need to exact path the less specific page
                           rule 3: both pages should be given the same props
                           rule 4: never send data thru react router dom links
-                            - state is the SOLE SOURCE OF TRUTH
+                          - state is the SOLE SOURCE OF TRUTH
                         */}
                         <Route
                             path="/services/:id"
@@ -52,7 +52,7 @@ function App() {
                         />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
-                </main>
+                </Layout>
             </Router>
         </div>
     );
